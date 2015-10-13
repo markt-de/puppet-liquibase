@@ -1,0 +1,13 @@
+{
+  "name": "puppet-liquibase2",
+  "version": "0.1.0",
+  "author": "puppet",
+  "summary": "This module installs and makes basic configs for liquibase.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/DSI-Ville-Noumea/puppet-liquibase2",
+  "project_page": "https://github.com/DSI-Ville-Noumea/puppet-liquibase2",
+  "issues_url": "https://github.com/DSI-Ville-Noumea/puppet-liquibase2/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
