@@ -11,7 +11,7 @@ class liquibase(
   $mysql_version      = $liquibase::params::mysql_version,
   $sqlite_version     = $liquibase::params::sqlite_version,
   $jt400_version      = $liquibase::params::jt400_version,
-  $environment        = $liquibase::params::proxy,
+  $environment        = hiera('environment'),
   ) inherits liquibase::params {
 
  class {'liquibase::install': } -> Class["liquibase"]

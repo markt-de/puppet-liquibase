@@ -44,11 +44,11 @@ class liquibase::install inherits liquibase {
   realize (File['/opt/puppet'], File['/opt/puppet/staging'], File['/opt/apps'])
 
 
- class { 'staging':
-   path  => '/opt/puppet/staging',
-   owner => 'puppet',
-   group => 'puppet',
- }
+  #class { 'staging':
+  # path  => '/opt/puppet/staging',
+  # owner => 'puppet',
+  # group => 'puppet',
+  #}
 
   staging::file { "liquibase-${version}-bin.tar.gz":
     environment => $environment,
