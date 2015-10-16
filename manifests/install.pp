@@ -37,18 +37,10 @@
 
 class liquibase::install inherits liquibase {
 
-  @file { ['/opt/puppet', '/opt/puppet/staging','/opt/apps']:
-    ensure => directory,
-  }
-
-  realize (File['/opt/puppet'], File['/opt/puppet/staging'], File['/opt/apps'])
-
-
-  #class { 'staging':
-  # path  => '/opt/puppet/staging',
-  # owner => 'puppet',
-  # group => 'puppet',
-  #}
+  # We configure this module to download files in a staging folder.
+  # We assume that the staging path is define before puppet-liquibase module is called.
+  # If you don't redefine staging path, default path will be the one set in the staging module => /opt/staging
+  # See README.md
 
   staging::file { "liquibase-${version}-bin.tar.gz":
     environment => $environment,

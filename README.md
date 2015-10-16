@@ -6,9 +6,11 @@ Newest liquibase puppet module, rewrittent to be cleaner... and shared with othe
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-4. [Limitations - OS compatibility, etc.](#limitations)
-5. [Development - Guide for contributing to the module](#development)
+3. [Setup - The basics of getting started with puppet-liquibase](#setup)
+    * [Setup requirements](#setup-requirements)
+4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+5. [Limitations - OS compatibility, etc.](#limitations)
+6. [Development - Guide for contributing to the module](#development)
 
 ##Overview
 
@@ -20,10 +22,23 @@ This module installs and makes basic configs for liquibase.
 
 This module is in charge of installing a given version of liquibase tool and jdbc drivers to connect to main databases. If a version of liquibase (newer or former) is already installed, it will be removed by the module.
 
+## Setup requirements
+
+We configure this module to download files in a staging folder.
+We assume that the staging path is define before puppet-liquibase module is called.
+If you don't redefine staging path, default path will be the one set in the staging module => /opt/staging
+
+This path can be set with :
+- hiera using staging::path parameter
+- or
+  class { 'staging':
+    path  => 'your_staging_path',
+  }
+
 ## Reference
 
 Classes :
-* [Staging](#class-firewall)
+* [Staging](#class-staging)
 
 ###Class: staging
 
