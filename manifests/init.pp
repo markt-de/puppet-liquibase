@@ -1,6 +1,6 @@
 # See README.md
 class liquibase(
-  $staging_path       = /opt/staging/,
+  $staging_path       = /opt/puppet/staging/,
   #version de liquibase
   $version 	          =  $liquibase::version,
   # Versions des drivers jdbc
