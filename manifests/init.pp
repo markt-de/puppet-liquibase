@@ -1,7 +1,8 @@
 # See README.md
 class liquibase(
+  $staging_path       = $::staging::path,
   #version de liquibase
-  $version 	          =  $liquibase::version,
+  $version            = $liquibase::version,
   # Versions des drivers jdbc
   $postgresql_version = $liquibase::postgresql_version,
   $derby_version      = $liquibase::derby_version,
