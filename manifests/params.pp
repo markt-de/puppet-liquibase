@@ -1,5 +1,4 @@
 class liquibase::params {
-  $staging_path       = '/opt/puppet/staging/'
   #version de liquibase
   $version            =  '3.4.0'
   # Versions des drivers jdbc
