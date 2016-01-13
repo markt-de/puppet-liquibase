@@ -1,6 +1,6 @@
 # liquibase
 
-Liquibase puppet module, rewrittent to be cleaner... and shared with others
+Liquibase puppet module.
 
 #### Table of Contents
 
