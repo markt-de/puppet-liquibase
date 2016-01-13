@@ -41,6 +41,7 @@ class liquibase::install inherits liquibase {
   # We assume that the staging path is define before puppet-liquibase module is called.
   # If you don't redefine staging path, default path will be the one set in the staging module => /opt/staging
   # See README.md
+  include staging
 
   staging::file { "liquibase-${version}-bin.tar.gz":
     environment => $environment,
