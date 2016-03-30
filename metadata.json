@@ -1,7 +1,7 @@
 {
   "name": "puppet-liquibase",
-  "version": "0.1.0",
-  "author": "puppet",
+  "version": "0.2.0",
+  "author": "Michèle",
   "summary": "This module installs and makes basic configs for liquibase.",
   "license": "Apache 2.0",
   "source": "https://github.com/DSI-Ville-Noumea/puppet-liquibase",
