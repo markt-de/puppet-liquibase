@@ -1,0 +1,13 @@
+---
+puppetversion: 4.1
+apps_home: '/opt/puppet/apps'
+liquibase::version: '3.4.1'
+liquibase::postgresql_version: '9.3-1103-jdbc41'
+liquibase::derby_version: '10.11.1.1'
+liquibase::h2_version: '1.4.187'
+liquibase::hsqldb_version: '2.3.2'
+liquibase::jtds_version: '1.3.1'
+liquibase::mysql_version: '5.1.34'
+liquibase::sqlite_version: '3.7.8'
+liquibase::jt400_version: '8.5'
+staging::path: '/opt/puppet/staging'
