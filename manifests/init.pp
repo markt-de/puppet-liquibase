@@ -13,7 +13,5 @@ class liquibase(
   $jt400_version      = $liquibase::jt400_version,
   $environment        = hiera('environment'),
   ) inherits liquibase::params {
-
- class {'liquibase::install': } -> Class["liquibase"]
-
+  class {'liquibase::install': } -> Class['liquibase']
 }
