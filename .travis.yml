@@ -1,0 +1,11 @@
+branches:
+  only:
+  - master
+language: ruby
+matrix:
+  fast_finish: true
+  include:
+    - rvm: 1.9.3
+      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
+    - rvm: 2.1.6
+      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"

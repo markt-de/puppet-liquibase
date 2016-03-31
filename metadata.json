@@ -1,13 +1,32 @@
 {
-  "name": "puppet-liquibase",
+  "name": "DsiVilleNoumea-liquibase",
   "version": "0.2.0",
-  "author": "Michèle",
-  "summary": "This module installs and makes basic configs for liquibase.",
+  "author": "mbarre",
+  "summary": "Liquibase installation and basic configuration",
   "license": "Apache 2.0",
   "source": "https://github.com/DSI-Ville-Noumea/puppet-liquibase",
   "project_page": "https://github.com/DSI-Ville-Noumea/puppet-liquibase",
   "issues_url": "https://github.com/DSI-Ville-Noumea/puppet-liquibase/issues",
+  "description":"This module installs and makes basic configs for liquibase.",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
-  ]
+    {
+      "name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"
+    },
+    {
+      "name":"nanliu-staging","version_requirement":">=1.0.4"
+    }
+  ],
+  "operatingsystem_support": [
+   {
+     "operatingsystem": "Ubuntu",
+     "operatingsystemrelease": [
+       "14.04"
+     ]
+   },
+   {
+     "operatingsystem": "CentOS",
+     "operatingsystemrelease": [
+       "6.7"
+     ]
+   },
 }
