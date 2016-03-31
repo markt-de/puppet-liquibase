@@ -94,7 +94,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_postgresql-${postgresql_version}.jar":
+  exec { "copy_postgresql-${::postgresql_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/postgresql-${::postgresql_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/liquibase-${::version}/lib/postgresql-${::postgresql_version}.jar",
@@ -108,7 +108,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_derbyclient-${derby_version}.jar":
+  exec { "copy_derbyclient-${::derby_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/derbyclient-${::derby_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/derbyclient-${::derby_version}.jar",
@@ -122,7 +122,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_h2-${h2_version}.jar":
+  exec { "copy_h2-${::h2_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/h2-${::h2_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/h2-${::h2_version}.jar",
@@ -136,7 +136,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_hsqldb-${hsqldb_version}.jar":
+  exec { "copy_hsqldb-${::hsqldb_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/hsqldb-${::hsqldb_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/hsqldb-${::hsqldb_version}.jar",
@@ -150,7 +150,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_jtds-${jtds_version}.jar":
+  exec { "copy_jtds-${::jtds_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/jtds-${::jtds_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/jtds-${::jtds_version}.jar",
@@ -164,7 +164,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_mysql-connector-java-${mysql_version}.jar":
+  exec { "copy_mysql-connector-java-${::mysql_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/mysql-connector-java-${::mysql_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/mysql-connector-java-${::mysql_version}.jar",
@@ -178,7 +178,7 @@ class liquibase::install inherits liquibase {
     require     => Staging::Extract["liquibase-${::version}-bin.tar.gz"],
   }
 
-  exec { "copy_jt400-${jt400_version}.jar":
+  exec { "copy_jt400-${::jt400_version}.jar":
     command => "/bin/cp ${::staging::path}/liquibase/jt400-${::jt400_version}.jar /opt/apps/liquibase/liquibase-${::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${::version}/lib/jt400-${::jt400_version}.jar",
@@ -187,7 +187,7 @@ class liquibase::install inherits liquibase {
 
   # Sqlite
   # Copie du jar car seule cette version (3.7.8) fonctionne
-  file { "/opt/apps/liquibase/liquibase-${::version}/lib/sqlite-jdbc-${sqlite_version}.jar":
+  file { "/opt/apps/liquibase/liquibase-${::version}/lib/sqlite-jdbc-${::sqlite_version}.jar":
     ensure  => present,
     owner   => root,
     group   => root,
