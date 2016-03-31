@@ -2,6 +2,11 @@ branches:
   only:
   - master
 language: ruby
+bundler_args: --without development system_tests
+before_install: rm Gemfile.lock || true
+script:
+  - bundle exec rake validate
+  - bundle exec rake lint
 matrix:
   fast_finish: true
   include:
