@@ -14,3 +14,14 @@ matrix:
       env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
     - rvm: 2.1.6
       env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
+deploy:
+  provider: puppetforge
+  user: dsivillenoumea
+  password:
+    secure: "iQgR/75UkKUZdM0RbGiChWkFQ8r+4bVDgelF5yM9DW8MYtmEswB07DGS7UYS7JOgMe6VuNuHmM6E87kqUyiG13Hz3W5E2MRnB4K/10ljGd3GT+VN/kGNXFIiViZgNieYfTsPgQOE3TlnTuWGUfumt8dzv+3p0dP1/sXlqfIRRqoh+Kl+380+kgsqCJyCnRXJ6T5rOKro9S+4Tepflx8FjetEOG+urKZlZkvXMhyCPFZvAtATwQAvpvEqFiLJwB3J0dOk9Krlw9IbP0UcD9XS70m2b0w3jXpbi+ZKPHMa6EqTGmQjEbOW5IePaTFd8pRBtstXl1G0u5vDUKwQYTHV6BmJEyJEAnsXa7jJfLW8Wm3TY524bqFTJgVCYqDF1otpIG96CtQ0PUujuD4/C4qmmIh/V+NwIt2kJseQUmu7jjKxHR1Ogdr+vlXsWrIYcXywuQM0sDfB3ooosYMFpBEW9H9jawGKCYCuVxXa4lGRLx9rrwtZcG+FksmIniaHVBjIzcBbopybWyDpK5QxHqJnp4qihEQLE2itYDmigNL/F7Z2W6GX61DKPKnk9BZtlTQ2slMOQqju24kb2FkER7lk23xzt/YwCdPyDSvXUki1JS4wLYt9tHzzLMJ6J9jZ5ViFCteoCWiwC/w5cife+j/NxAFfTEyRdQcmM3hwvnMoRBM="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true
+    # Only publish if our main Ruby target builds
+    rvm: 2.1.6
