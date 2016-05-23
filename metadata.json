@@ -1,6 +1,6 @@
 {
   "name": "dsivillenoumea-liquibase",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "mbarre",
   "summary": "Liquibase installation and basic configuration",
   "license": "Apache-2.0",
