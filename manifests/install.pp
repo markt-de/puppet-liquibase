@@ -185,6 +185,20 @@ class liquibase::install inherits liquibase {
     require => [Staging::Extract["liquibase-${version}-bin.tar.gz"], Staging::File["jt400-${jt400_version}.jar"]],
   }
 
+  # MariaDB
+  staging::file { "mariadb-${mariadb_version}.jar":
+    environment => $environment,
+    source      => "http://central.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/${mariadb_version}/mariadb-java-client-${mariadb_version}.jar",
+    require     => Staging::Extract["liquibase-${version}-bin.tar.gz"],
+  }
+
+  exec { "copy_mariadb-${mariadb_version}.jar":
+    command => "/bin/cp ${staging::path}/liquibase/mariadb-${mariadb_version}.jar /opt/apps/liquibase/liquibase-${version}/lib/",
+    path    => '/usr/local/bin/:/bin/',
+    creates => "/opt/apps/liquibase/liquibase-${version}/lib/mariadb-${mariadb_version}.jar",
+    require => [Staging::Extract["liquibase-${version}-bin.tar.gz"], Staging::File["mariadb-${mariadb_version}.jar"]],
+  }
+
   # Sqlite
   # Copie du jar car seule cette version (3.7.8) fonctionne
   file { "/opt/apps/liquibase/liquibase-${version}/lib/sqlite-jdbc-${sqlite_version}.jar":
