@@ -7,7 +7,7 @@ class liquibase::params {
   $h2_version         = '1.4.191'
   $hsqldb_version     = '2.3.4'
   $jtds_version       = '1.3.1'
-  $mysql_version      = '5.1.34'
+  $mysql_version      = '6.0.2'
   $sqlite_version     = '3.7.8'
   $jt400_version      = '9.0'
   $environment        = undef
