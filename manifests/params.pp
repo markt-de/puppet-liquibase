@@ -9,6 +9,6 @@ class liquibase::params {
   $jtds_version       = '1.3.1'
   $mysql_version      = '5.1.34'
   $sqlite_version     = '3.7.8'
-  $jt400_version      = '8.5'
+  $jt400_version      = '9.0'
   $environment        = undef
 }
