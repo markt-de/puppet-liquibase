@@ -5,7 +5,7 @@ class liquibase::params {
   $postgresql_version = '9.4.1208'
   $derby_version      = '10.11.1.1'
   $h2_version         = '1.4.191'
-  $hsqldb_version     = '2.3.2'
+  $hsqldb_version     = '2.3.4'
   $jtds_version       = '1.3.1'
   $mysql_version      = '5.1.34'
   $sqlite_version     = '3.7.8'
