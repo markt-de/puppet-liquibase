@@ -3,7 +3,7 @@ class liquibase::params {
   $version            =  '3.5.1'
   # Versions des drivers jdbc
   $postgresql_version = '9.4.1208'
-  $derby_version      = '10.11.1.1'
+  $derby_version      = '10.12.1.1'
   $h2_version         = '1.4.191'
   $hsqldb_version     = '2.3.4'
   $jtds_version       = '1.3.1'
