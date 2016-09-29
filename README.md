@@ -56,4 +56,4 @@ None
 If you would like to contribute to this project, you can :
 * Fork it
 * Create new Pull Request
-* Create issue
+* [Create issue](https://github.com/DSI-Ville-Noumea/puppet-liquibase/issues)
