@@ -1,24 +1,50 @@
+---
+sudo: false
+dist: trusty
 language: ruby
-bundler_args: --without development system_tests
-before_install: rm Gemfile.lock || true
+cache: bundler
+before_install:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - echo -e "machine github.com\n  login $APIKEY\n protocol git" >> ~/.netrc
+  - gem update --system
+  - gem update bundler
+  - gem --version
+  - bundle -v
 script:
-  - bundle exec rake validate
-  - bundle exec rake lint
+  - 'bundle exec rake $CHECK'
 matrix:
   fast_finish: true
   include:
-    - rvm: 1.9.3
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-    - rvm: 2.1.6
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-deploy:
-  provider: puppetforge
-  user: dsivillenoumea
-  password:
-    secure: "iQgR/75UkKUZdM0RbGiChWkFQ8r+4bVDgelF5yM9DW8MYtmEswB07DGS7UYS7JOgMe6VuNuHmM6E87kqUyiG13Hz3W5E2MRnB4K/10ljGd3GT+VN/kGNXFIiViZgNieYfTsPgQOE3TlnTuWGUfumt8dzv+3p0dP1/sXlqfIRRqoh+Kl+380+kgsqCJyCnRXJ6T5rOKro9S+4Tepflx8FjetEOG+urKZlZkvXMhyCPFZvAtATwQAvpvEqFiLJwB3J0dOk9Krlw9IbP0UcD9XS70m2b0w3jXpbi+ZKPHMa6EqTGmQjEbOW5IePaTFd8pRBtstXl1G0u5vDUKwQYTHV6BmJEyJEAnsXa7jJfLW8Wm3TY524bqFTJgVCYqDF1otpIG96CtQ0PUujuD4/C4qmmIh/V+NwIt2kJseQUmu7jjKxHR1Ogdr+vlXsWrIYcXywuQM0sDfB3ooosYMFpBEW9H9jawGKCYCuVxXa4lGRLx9rrwtZcG+FksmIniaHVBjIzcBbopybWyDpK5QxHqJnp4qihEQLE2itYDmigNL/F7Z2W6GX61DKPKnk9BZtlTQ2slMOQqju24kb2FkER7lk23xzt/YwCdPyDSvXUki1JS4wLYt9tHzzLMJ6J9jZ5ViFCteoCWiwC/w5cife+j/NxAFfTEyRdQcmM3hwvnMoRBM="
-  on:
-    tags: true
+  - rvm: 2.1.9
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
+  - rvm: 2.4.2
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=test_with_coveralls
+  - rvm: 2.4.2
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=rubocop
+branches:
+  only:
+  - master
+  - /^v\d/
+notifications:
+  email: false
+#deploy:
+#  provider: puppetforge
+#  user: puppet
+#  password:
+#    secure: ""
+ # on:
+ #   tags: true
     # all_branches is required to use tags
-    all_branches: true
-    # Only publish if our main Ruby target builds
-    rvm: 2.1.6
+ #   all_branches: true
+ #   # Only publish the build marked with "DEPLOY_TO_FORGE"
+ #   condition: "$DEPLOY_TO_FORGE = yes"
+  slack:
+    secure: qWvpt1RYDBJr6J0wcVveFIa/s9JW4OiEmz8AAKce8dM9MR9yr8yDjJ6WKxL27Trofgl4W3Eb4rWOk4dePlhqUyt5x2OuSWL3W7/uyoubiBqJuC4voimf1c/Jp0JH3OV4bgnzZc15IJWic+/1myOlEaPHHNWltB8lnVcqppnjUWIr8lFhT4OvowaoBlFEIZDW/aKluVo3dQJrlNK4KRNRPR0Csk3p1CuzxeW1j5Xbn0qfWMHIzbZSryQ/4K65wcwxCn+HF5BWvl+9Rz59hu0QoC04dJY77NFKHAJ/4khoZaDuXb6M4Hy9et8At9Vk5uO4/rexzr4JhAVlKbEZKovnQ9mOmITyGCjz8wrHEnz9RVIa49iB9uIepPOKZEe2tSCLbncsvWSTTcfzMUAWOJYkC6ZfBeTwm0WygcGIfvaXNSYXvH2pk8YuQlvnzrstlJ8xNaQk0eP/v9tk/1LCPul+nErlzmR2PfBR49z1p2gGmgCoUCcid+MYzh0j4FQl8a8CJ00FxAXaRxxb86EMGr0ewnmKdDvMHcqex/AFUlN1kQUFpBiS2YM6dafXoj5TLsk95jSzZb4GTnzGuOEUcjoelPIVoHI9dlnogROIqsLx76VgHU/cE5LzRXPXdHORglxMSLjk1ViPFvl279NA9s6cNHoZzXnMFHgB2+1pUxGYLOo=
+env:
+  global:
+    secure: ""
+
