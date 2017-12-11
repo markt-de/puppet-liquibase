@@ -98,7 +98,10 @@ class liquibase::install inherits liquibase {
     command => "/bin/cp ${staging::path}/liquibase/postgresql-${liquibase::postgresql_version}.jar /opt/apps/liquibase/liquibase-${liquibase::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/liquibase-${liquibase::version}/lib/postgresql-${liquibase::postgresql_version}.jar",
-    require => [Staging::Extract["liquibase-${liquibase::version}-bin.tar.gz"], Staging::File["postgresql-${liquibase::postgresql_version}.jar"]]
+    require => [
+      Staging::Extract["liquibase-${liquibase::version}-bin.tar.gz"],
+      Staging::File["postgresql-${liquibase::postgresql_version}.jar"]
+    ],
   }
 
   # Derby
@@ -112,7 +115,10 @@ class liquibase::install inherits liquibase {
     command => "/bin/cp ${staging::path}/liquibase/derbyclient-${liquibase::derby_version}.jar /opt/apps/liquibase/liquibase-${liquibase::version}/lib/",
     path    => '/usr/local/bin/:/bin/',
     creates => "/opt/apps/liquibase/liquibase-${liquibase::version}/lib/derbyclient-${liquibase::derby_version}.jar",
-    require => [Staging::Extract["liquibase-${liquibase::version}-bin.tar.gz"], Staging::File["derbyclient-${liquibase::derby_version}.jar"]],
+    require => [
+      Staging::Extract["liquibase-${liquibase::version}-bin.tar.gz"],
+      Staging::File["derbyclient-${liquibase::derby_version}.jar"]
+    ],
   }
 
   # H2
