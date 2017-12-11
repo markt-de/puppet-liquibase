@@ -1,0 +1,6 @@
+fixtures:
+  symlinks:
+    profiles: "#{source_dir}"
+  repositories:
+    staging: 'https://github.com/DSI-Ville-Noumea/puppet-staging.git'
+
