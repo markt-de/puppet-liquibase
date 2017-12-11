@@ -1,8 +1,8 @@
 ---
 puppetversion: 4.1
 apps_home: '/opt/puppet/apps'
-liquibase::version: '3.5.1'
-liquibase::postgresql_version: '9.4.1208'
+liquibase::version: '3.5.2'
+liquibase::postgresql_version: '9.4.1211'
 liquibase::derby_version: '10.12.1.1'
 liquibase::h2_version: '1.4.191'
 liquibase::hsqldb_version: '2.3.4'
