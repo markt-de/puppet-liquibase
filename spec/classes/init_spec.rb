@@ -14,6 +14,7 @@ describe 'liquibase' do
       fqdn: 'svq-nonexistant.domain',
       architecture: 'x64',
       selinux: true
+    }
   end
   context 'with defaults for all parameters' do
     it { is_expected.to contain_class('liquibase') }
