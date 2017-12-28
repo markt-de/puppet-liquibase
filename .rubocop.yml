@@ -185,7 +185,7 @@ Style/WhenThen:
   Enabled: True
 
 Style/WordArray:
-  Enabled: True
+  Enabled: False 
 
 Style/UnneededPercentQ:
   Enabled: True
@@ -418,7 +418,7 @@ Style/Not:
   Enabled: True
 
 Style/NumericLiterals:
-  Enabled: True
+  Enabled: False
 
 Style/OneLineConditional:
   Enabled: True
