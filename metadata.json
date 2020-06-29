@@ -7,7 +7,7 @@
   "source": "https://github.com/DSI-Ville-Noumea/puppet-liquibase",
   "project_page": "https://github.com/DSI-Ville-Noumea/puppet-liquibase",
   "issues_url": "https://github.com/DSI-Ville-Noumea/puppet-liquibase/issues",
-  "description":"This module installs and makes basic configs for liquibase.",
+  "description":"This module installs and makes basic configs for liquibase",
   "tags":[
     "liquibase",
     "database",
