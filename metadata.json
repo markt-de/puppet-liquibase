@@ -1,6 +1,6 @@
 {
   "name": "puppet-liquibase",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "mbarre",
   "summary": "Liquibase installation and basic configuration",
   "license": "Apache-2.0",
