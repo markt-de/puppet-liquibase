@@ -22,30 +22,27 @@ This module installs and makes basic configs for liquibase.
 
 [Liquibase](http://www.liquibase.org/index.html), is an open source database-independent library for tracking, managing and applying database schema changes.
 
-This module is in charge of installing a given version of liquibase tool and jdbc drivers to connect to main databases. If a version of liquibase (newer or former) is already installed, it will be removed by the module.
+This module is in charge of installing a given version of liquibase tool, percona-plugin and jdbc mysql drivers to connect to main databases. If a version of liquibase (newer or former) is already installed, it will be removed by the module.
 
 ## Setup requirements
 
-We configure this module to download files in a staging folder.
-We assume that the staging path is define before puppet-liquibase module is called.
-If you don't redefine staging path, default path will be the one set in the staging module => /opt/staging
+- archive Class
+- JDK is needed
+
+If you don't redefine staging path, default path will be the one set in the staging module => /opt/apps
 
 This path can be set with :
-- hiera using staging::path parameter
-- or
-  class { 'staging':
-    path  => 'your_staging_path',
-  }
+- hiera using liquibase::install\_root
 
 ## Reference
 
 Classes :
-* [Staging](#class-staging)
+* [Archive](#class-archive)
 
-###Class: staging
+###Class: archive
 
-Manages staging directory, along with download/extraction of compressed files.
-https://forge.puppetlabs.com/nanliu/staging
+Compressed archive file download and extraction with native types/providers for Windows and Unix
+https://forge.puppet.com/modules/puppet/archive
 
 ## Limitations
 
@@ -56,4 +53,4 @@ None
 If you would like to contribute to this project, you can :
 * Fork it
 * Create new Pull Request
-* [Create issue](https://github.com/DSI-Ville-Noumea/puppet-liquibase/issues)
+* [Create issue](https://github.com/markt-de/puppet-liquibase/issues)

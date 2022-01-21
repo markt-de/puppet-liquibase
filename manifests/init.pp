@@ -1,18 +1,37 @@
-# See README.md
+# @summary Install liquibase
+#
+# @example
+#   include liquibase
+#
+# @param ensure
+#   The Version of Liquibase Core. Default: 'present' ENUM('present','absent')
+#
+# @param version
+#   The Version of Liquibase Core. Default: '4.7.1'
+#
+# @param mirror
+#   The base URI from the REPO. Default: 'https://github.com'
+#
+# @param install_root
+#   The base Path to install liquibase. Default: '/opt/apps'
+#
+# @param percona_version
+#   The Version of Percona Plugin. Default: '4.7.0'
+#
+# @param mysql_version
+#   The Version of MySQL JDBC Plugin. Default: '8.0.28'
+#
+# @param tmp_dir
+#   The base Path to extract and prepare Plugins. Default: '/tmp/liquibase_plugins'
+#
 class liquibase(
-  #version de liquibase
-  $version            = $liquibase::version,
-  # Versions des drivers jdbc
-  $postgresql_version = $liquibase::postgresql_version,
-  $derby_version      = $liquibase::derby_version,
-  $h2_version         = $liquibase::h2_version,
-  $hsqldb_version     = $liquibase::hsqldb_version,
-  $jtds_version       = $liquibase::jtds_version,
-  $mysql_version      = $liquibase::mysql_version,
-  $sqlite_version     = $liquibase::sqlite_version,
-  $jt400_version      = $liquibase::jt400_version,
-  $mariadb_version    = $liquibase::mariadb_version,
-  $environment        = $liquibase::environment,
-  ) inherits liquibase::params {
-  class {'liquibase::install': } -> Class['liquibase']
+  Enum['present', 'absent'] $ensure = $liquibase::ensure,
+  String $version = $liquibase::version,
+  String $mirror = $liquibase::mirror,
+  Stdlib::Absolutepath $install_root = $liquibase::install_root,
+  String $percona_version = $liquibase::percona_version,
+  String $mysql_version = $liquibase::mysql_version,
+  Stdlib::Absolutepath $tmp_dir = $liquibase::tmp_dir,
+  ) {
+  class {'liquibase::install': }
 }

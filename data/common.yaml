@@ -1,0 +1,8 @@
+---
+liquibase::ensure: 'present'
+liquibase::version: '4.7.1'
+liquibase::mirror: 'https://github.com'
+liquibase::install_root: '/opt/apps'
+liquibase::percona_version: '4.7.0'
+liquibase::mysql_version: '8.0.28'
+liquibase::tmp_dir: '/tmp/liquibase_plugins'
