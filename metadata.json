@@ -1,6 +1,6 @@
 {
   "name": "markt-de_liquibase",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "author": "markt.de",
   "summary": "Liquibase installation and basic configuration",
   "license": "Apache-2.0",
