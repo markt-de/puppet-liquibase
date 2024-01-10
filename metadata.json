@@ -55,7 +55,7 @@
     "database",
     "devops"
   ],
-  "pdk-version": "2.3.0",
-  "template-url": "pdk-default#2.3.0",
-  "template-ref": "tags/2.3.0-0-g8aaceff"
+  "pdk-version": "3.0.1",
+  "template-url": "https://github.com/markt-de/pdk-templates.git#main",
+  "template-ref": "heads/main-0-g909fd77"
 }
