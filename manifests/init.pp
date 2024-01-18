@@ -24,7 +24,7 @@
 # @param tmp_dir
 #   The base Path to extract and prepare Plugins. Default: '/tmp/liquibase_plugins'
 #
-class liquibase(
+class liquibase (
   Enum['present', 'absent'] $ensure = $liquibase::ensure,
   String $version = $liquibase::version,
   String $mirror = $liquibase::mirror,
@@ -32,6 +32,6 @@ class liquibase(
   String $percona_version = $liquibase::percona_version,
   String $mysql_version = $liquibase::mysql_version,
   Stdlib::Absolutepath $tmp_dir = $liquibase::tmp_dir,
-  ) {
-  class {'liquibase::install': }
+) {
+  class { 'liquibase::install': }
 }
